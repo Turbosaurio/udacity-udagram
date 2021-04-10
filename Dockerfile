@@ -1,1 +1,0 @@
-CMD ["docker-compose","up","--build"]
