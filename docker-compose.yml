@@ -1,0 +1,15 @@
+services:
+  udagram-api:
+    container_name: udagram-api
+    image: api
+    build: ./udagram-api/.
+    env_file:
+      - ./.env
+    ports:
+      - "8080:8080"
+  # udagram-frontend:
+  #   container_name: udagram-frontend
+  #   image: frontend
+  #   build: ./udagram-frontend/.
+  #   ports:
+  #     - "8100:8100"
