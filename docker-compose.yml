@@ -1,6 +1,6 @@
 services:
   udagram-api:
-    container_name: udagram-api
+    container_name: api
     image: api
     build: ./udagram-api/.
     env_file:
