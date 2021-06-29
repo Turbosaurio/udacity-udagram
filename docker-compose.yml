@@ -4,8 +4,8 @@ services:
     container_name: udagram-api
     image: api
     build: ./udagram-api/.
-    # env_file:
-    #   - .env
+    env_file:
+      - .env
   udagram-frontend:
     container_name: udagram-frontend
     image: frontend

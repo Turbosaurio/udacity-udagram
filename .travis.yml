@@ -15,7 +15,11 @@ before_script:
 
 script:
   - docker --version # print the version for logging
-  - docker-compose build
+
+  - docker build -t api ./udagram-api/.
+  - docker build -t reverseproxy ./udagram-proxy/.
+  - docker build -t frontend ./udagram-frontend/.
+  
   - docker tag api turbosaurio/api
   - docker tag reverseproxy turbosaurio/reverseproxy
   - docker tag frontend turbosaurio/frontend
