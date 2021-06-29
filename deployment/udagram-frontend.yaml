@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udagram-frontend
+  labels:
+    app: udagram-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-frontend
+  template:
+    metadata:
+      labels:
+        app: udagram-frontend
+    spec:
+      restartPolicy: Always
+      containers:
+      - image: turbosaurio/frontend
+        name: udagram-frontend
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: udagram-frontend
+  name: udagram-frontend
+spec:
+  ports:
+  - protocol: TCP
+    targetPort: 80
+    port: 80
+    # nodePort: 31002
+  selector:
+    app: udagram-frontend
+  type: LoadBalancer
