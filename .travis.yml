@@ -19,8 +19,6 @@ script:
   - docker build -t api ./udagram-api/.
   - docker build -t reverseproxy ./udagram-proxy/.
   - docker build -t frontend ./udagram-frontend/.
-
-  - echo images created
   
   - docker tag api turbosaurio/api
   - docker tag reverseproxy turbosaurio/reverseproxy
