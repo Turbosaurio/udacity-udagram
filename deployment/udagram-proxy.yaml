@@ -16,7 +16,7 @@ spec:
     spec:
       restartPolicy: Always
       containers:
-      - image: turbosaurio/udagram-proxy
+      - image: turbosaurio/reverseproxy
         name: reverseproxy
         imagePullPolicy: Always
         ports: 
