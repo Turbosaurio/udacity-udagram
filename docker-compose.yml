@@ -1,5 +1,11 @@
 version: '3'
 services:
+  udagram-service-2:
+    container_name: udagram-service-2
+    image: api
+    build: ./udagram-service-2/.
+    env_file:
+      - .env
   udagram-api:
     container_name: udagram-api
     image: api

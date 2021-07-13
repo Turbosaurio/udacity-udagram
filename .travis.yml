@@ -17,10 +17,12 @@ script:
   - docker --version # print the version for logging
 
   - docker build -t api ./udagram-api/.
+  - docker build -t api-2 ./udagram-service-2/.
   - docker build -t reverseproxy ./udagram-proxy/.
   - docker build -t frontend ./udagram-frontend/.
   
   - docker tag api turbosaurio/api
+  - docker tag api turbosaurio/api-2
   - docker tag reverseproxy turbosaurio/reverseproxy
   - docker tag frontend turbosaurio/frontend
 
@@ -28,5 +30,6 @@ script:
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push turbosaurio/api
+  - docker push turbosaurio/api-2
   - docker push turbosaurio/reverseproxy
   - docker push turbosaurio/frontend
